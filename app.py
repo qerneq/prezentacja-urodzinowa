@@ -1,12 +1,34 @@
 import streamlit as st
+import base64
 import random
 from datetime import date
-from streamlit_extras.let_it_rain import rain # <-- To musi być na górze!
+from streamlit_extras.let_it_rain import rain
+
+# 1. FUNKCJA DO MUZYKI (musi być na samej górze)
+def autoplay_audio(file_path: str):
+    with open(file_path, "rb") as f:
+        data = f.read()
+        b64 = base64.b64encode(data).decode()
+        md = f"""
+            <audio autoplay="true" loop="true">
+            <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
+            </audio>
+            """
+        st.markdown(md, unsafe_allow_html=True)
 
 # Ustawienia strony
 st.set_page_config(page_title="Wszystkiego Najlepszego!", page_icon="🎂")
 
 st.title("🎂 Niespodzianka Urodzinowa!")
+
+st.write("### 🎵 Włącz muzykę dla lepszego klimatu!")
+
+try:
+    audio_file = open('music.mp3', 'rb')
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format='audio/mp3', loop=True)
+except FileNotFoundError:
+    st.warning("Wrzuć plik 'music.mp3' do folderu na GitHubie, aby usłyszeć muzykę! 🎶")
 
 # 1. Licznik "Ile to już dni?" (ze screena nr 2)
 st.header("1. Licznik 'Ile to już dni jesteś z Nami?'")
