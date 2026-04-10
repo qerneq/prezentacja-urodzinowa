@@ -1,6 +1,7 @@
 import streamlit as st
-from datetime import date
 import random
+from datetime import date
+from streamlit_extras.let_it_rain import rain # <-- To musi być na górze!
 
 # Ustawienia strony
 st.set_page_config(page_title="Wszystkiego Najlepszego!", page_icon="🎂")
@@ -30,24 +31,27 @@ st.header("3. Wspomnienia")
 
 # Wyświetlanie zdjęcia nr 1
 # 'width=500' zapobiega rozjechaniu się zdjęcia na całą szerokość ekranu
-st.image("nell.jpg", caption="❤️", width=500)
+st.image("nell.jpg", caption="❤️", use_container_width=True)
 
 st.info("Pamiętasz?")
 
 # Wyświetlanie zdjęcia nr 2
-st.image("nell4.jpg", caption="Szybka zmiiana scenerii 😂", width=500)
+st.image("nell4.jpg", caption="Szybka zmiiana scenerii 😂", use_container_width=True)
 
 # Wyświetlanie zdjęcia nr 3
-st.image("nell2.jpg", caption="❤️", width=500)
+st.image("nell2.jpg", caption="❤️", use_container_width=True) # To sprawi, że zdjęcie będzie się dopasowywać do szerokości kontenera, ale nie będzie rozciągnięte na całą szerokość ekranu
 
 # Wyświetlanie zdjęcia nr 4
-st.image("nell6.jpg", caption="❤️", width=500)
+st.image("nell6.jpg", caption="❤️", use_container_width=True)
 
 # Wyświetlanie zdjęcia nr 5
-st.image("nell7.jpg", caption="❤️", width=500)  
+st.image("nell7.jpg", caption="❤️", use_container_width=True)  
 
 # Wyświetlanie zdjęcia nr 6
-st.image("nell5.jpg", caption="❤️", width=500)
+st.image("nell5.jpg", caption="❤️", use_container_width=True)
+
+# Wyświetlanie zdjęcia nr 7
+st.image("nell8.jpg", caption="❤️", use_container_width=True)
 
 # Dodanie filmiku z folderu
 st.subheader("OBYŚ SZŁA PRZEZ ŻYCIE TAK GŁADKO JAK RADZISZ SOBIE NA TYM VIDEO ❤️ JESTEM Z CIEBIE DUMNY❤️:")
@@ -93,14 +97,21 @@ komplementy = [
 ]
 
 # Przycisk z niespodzianką
-if st.button("Kliknij po dawkę pozytywnej energii!"):
-    st.balloons() # Animacja balonów
+# Przykład użycia konfetti w generatorze uśmiechu:
+if st.button("Kliknij po dawkę pozytywnej energii! (KAŻDY KLIK TO COŚ INNEGO 😉)"):
+    # To puści konfetti (emoji) na 1 sekundę, w ilości 20 sztuk
+    rain(
+        emoji="🎉",
+        font_size=60,
+        falling_speed=4,
+        animation_length="2s",
+    )
     
-    # Wybieramy losowy tekst
-    wybrany_tekst = random.choice(komplementy)
+    st.balloons() # Możesz zostawić balony, będą lecieć razem z konfetti!
+    st.header(f"✨ {random.choice(komplementy)} ✨")
     
-    # OPCJA 1: Bardzo duże litery (st.header)
-    st.header(f"✨ {wybrany_tekst} ✨")
+    
+
     
     # OPCJA 2 (Jeśli chcesz, żeby tekst był kolorowy i w ramce, ale nieco mniejszy):
     # st.success(wybrany_tekst)
