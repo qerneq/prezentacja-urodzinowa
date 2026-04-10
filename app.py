@@ -31,13 +31,13 @@ except FileNotFoundError:
     st.warning("Wrzuć plik 'music.mp3' do folderu na GitHubie, aby usłyszeć muzykę! 🎶")
 
 # 1. Licznik "Ile to już dni?" (ze screena nr 2)
-st.header("1. Licznik 'Ile to już dni jesteś z Nami?'")
+st.header("Licznik 'Ile to już dni jesteś z Nami?'")
 urodziny = date(2012, 4, 10) # Tutaj wpisz właściwą datę
 dni = (date.today() - urodziny).days
 st.metric("Jesteś z nami już tyle dni:", f"{dni} dni")
 
 # 2. Sekcja z kuponami (ze screena nr 1)
-st.header("2. Kupony do wykorzystania")
+st.header("Kupony do wykorzystania")
 st.write("Kliknij w kupon, aby go zrealizować!")
 
 with st.expander("🎁 KLIKNIJ, ABY ODEBRAĆ PREZENT NR 1"):
@@ -49,7 +49,7 @@ with st.expander("🍻 KLIKNIJ, ABY ODEBRAĆ PREZENT NR 2"):
     st.write("Termin do ustalenia – ja stawiam!")
 
 # 3. Wspomnienia 
-st.header("3. Wspomnienia")
+st.header("Wspomnienia")
 
 # Wyświetlanie zdjęcia nr 1
 # 'width=500' zapobiega rozjechaniu się zdjęcia na całą szerokość ekranu
@@ -83,13 +83,13 @@ video_bytes = video_file.read()
 st.video(video_bytes)
 
 # 4. Muzyka tak dla umilenia (ze screena nr 2)
-st.header("4. Muzyka tak dla umilenia")
+st.header("Muzyka tak dla umilenia")
 # Przykład dla piosenki "Happy"
 st.video("https://www.youtube.com/watch?v=ZbZSe6N_BXs")
 
 # --- SEKCJA 5: CHECKLISTA MARZEŃ ---
 st.divider() # To narysuje ładną linię oddzielającą
-st.header("5. Nasza lista przygód na ten rok ✈️")
+st.header("Nasza lista przygód na ten rok ✈️")
 st.write("Co Ty na to, żebyśmy w tym roku odhaczyli te rzeczy?")
 
 cele = [
@@ -107,7 +107,7 @@ for cel in cele:
 
 # --- SEKCJA 6: GENERATOR UŚMIECHU ---
 st.divider()
-st.header("6. Generator uśmiechu 😊")
+st.header("Generator uśmiechu 😊")
 st.write("Gdybyś miał gorszy dzień, kliknij przycisk poniżej!")
 
 komplementy = [
