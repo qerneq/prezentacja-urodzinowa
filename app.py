@@ -85,7 +85,7 @@ st.video(video_bytes)
 # 4. Muzyka tak dla umilenia (ze screena nr 2)
 st.header("Muzyka tak dla umilenia")
 # Przykład dla piosenki "Happy"
-st.video("https://www.youtube.com/watch?v=ZbZSe6N_BXs")
+st.video("https://www.youtube.com/watch?v=DUa7AX1f05w")
 
 # --- SEKCJA 5: CHECKLISTA MARZEŃ ---
 st.divider() # To narysuje ładną linię oddzielającą
